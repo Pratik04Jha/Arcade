@@ -42,3 +42,7 @@ next-env.d.ts
 
 # clerk configuration (can include secrets)
 /.clerk/
+
+# others that i use for development process, this helps me a lot i coding process
+zeron.yaml
+
