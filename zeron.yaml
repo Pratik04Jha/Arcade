@@ -1,0 +1,12 @@
+<Link
+className="sign bg-amber-300 py-2 px-8 text-1xl font-bold text-black"
+href="/"
+>
+<SignedOut>
+<SignInButton />
+<SignUpButton />
+</SignedOut>
+<SignedIn>
+<UserButton />
+</SignedIn>
+</Link>
