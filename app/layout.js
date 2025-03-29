@@ -3,9 +3,8 @@ import SideBar from "./components/SideBar";
 import Head from "next/head";
 import "./globals.css";
 import Footer from "./components/Footer";
-import {
-  ClerkProvider,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
+import ClientLayout from "./ClientLayout";
 
 export const metadata = {
   title: "Game acrade",
@@ -25,10 +24,12 @@ export default function RootLayout({ children }) {
           <link rel="icon" href={metadata.icon} />
         </Head>
         <body className="overflow-x-hidden">
-          <SideBar />
           <div className="ml-60">
-            <Navbar />
-            {children}
+            <ClientLayout>
+              <SideBar />
+              <Navbar />
+              {children}
+            </ClientLayout>
           </div>
           <Footer />
         </body>
