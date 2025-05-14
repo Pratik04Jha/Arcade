@@ -5,9 +5,7 @@
   width: 0;
 }
 
-* {
-  border-radius: 0;
-}
+
 
 a:focus,
 button:focus {
@@ -92,7 +90,7 @@ button:focus {
   transform: translate(0px, 10px);
 }
 
-aside::after {
+/* aside::after {
   content: "";
   position: absolute;
   height: 100%;
@@ -103,12 +101,12 @@ aside::after {
   z-index: 600;
   border-right: 4px solid black;
   border-left: 4px solid black;
-}
+} */
 
-input {
+/* input {
   border: 5px solid #f7a900;
   outline: none;
-}
+} */
 
 .link {
   transition: 0.2s;
@@ -172,116 +170,4 @@ input {
 .textShadow {
   text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
     2px 2px 0 black;
-}
-
-.cl-internal-c2xpfh {
-  background-color: black;
-  color: white;
-}
-
-.cl-internal-190cjq9 {
-  color: white;
-}
-
-.cl-internal-1y71s3o {
-  color: white;
-}
-
-.cl-internal-bd5msj {
-  color: black;
-  background-color: White;
-}
-
-.cl-internal-13lvar6 {
-  background: black;
-}
-
-.cl-internal-df7v37 {
-  display: none;
-}
-
-.cl-internal-pp7u0o {
-  color: white;
-}
-
-.cl-internal-168uxhv {
-  color: white;
-}
-
-.cl-internal-1jbqck3 {
-  transition: 0.2s;
-  background: white;
-  color: black;
-  border-radius: 0px;
-}
-.cl-internal-1jbqck3:hover {
-  transition: 0.2s;
-  background: rgb(229, 229, 229);
-  color: black;
-  border-radius: 0px;
-}
-
-.cl-internal-jurfxa {
-  transition: 0.2s;
-  background: white;
-  color: black;
-  border-radius: 0px;
-}
-
-.cl-internal-jurfxa:hover {
-  transition: 0.2s;
-  background: rgb(229, 229, 229);
-  color: black;
-  border-radius: 0px;
-}
-
-.cl-internal-1una0r3 {
-  border: 5px solid #f7a900;
-  border-left: none;
-}
-
-.cl-internal-13lvar6 {
-  border: 5px solid #f7a900;
-  border-right: 1px solid #f7a900;
-}
-
-.cl-internal-bolkfx {
-  color: white;
-}
-
-.cl-internal-nbukz8 {
-  color: white;
-}
-
-.cl-internal-1pz8pdy {
-  color: white;
-}
-
-.cl-internal-3gh7hq {
-  color: white;
-}
-.cl-internal-1e217up{
-  background: black;
-}
-
-.cl-internal-1s0h3cl{
-  color: white;
-}
-
-.cl-internal-23zfou{
-  color: white;
-}
-
-.cl-internal-1p8ruhb{
-  color: black;
-  background-color: white;
-}
-
-.cl-internal-1sz5lzl[data-variant="solid"][data-color="primary"]{
-  background-color: white;
-  color: black;
-}
-
-.cl-internal-1dauvpw{
-  display: none;
 }

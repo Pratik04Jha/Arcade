@@ -58,13 +58,13 @@ const SideBar = () => {
   const { redirectToUserProfile } = useClerk(); // Get Clerk's profile redirect function
 
   return (
-    <aside className="w-60 p-2 h-screen bg-zinc-900/50 text-white z-600 fixed top-0 left-0 flex flex-col gap-4 justify-between">
-      <div className="flex flex-col gap-4">
+    <aside className="w-60 p-2 h-screen bg-zinc-900/80 rounded-3xl text-white z-600 fixed top-0 left-0 flex flex-col gap-4 justify-between">
+      <div className="flex flex-col gap-2">
         {info.map((item, index) => (
           <SideLinks key={index} info={item} />
         ))}
       </div>
-      <div>
+      {/* <div>
         <button
           className="settings w-full h-13 text-2xl flex pl-5 items-center "
           onClick={() => redirectToUserProfile()}
@@ -72,7 +72,7 @@ const SideBar = () => {
           {" "}
           <IoSettingsOutline /> Settings
         </button>
-      </div>
+      </div> */}
     </aside>
   );
 };

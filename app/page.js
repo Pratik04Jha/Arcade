@@ -89,9 +89,7 @@ const Page = () => {
 
   return (
     <div className="flex flex-wrap justify-center gap-15 py-30">
-      <h1 className="textShadow text-6xl tracking-tight text-center font-extrabold text-yellow-500 ">
-        Welcome to my arcade
-      </h1>
+      
       <div className="h-full w-full flex flex-wrap justify-center gap-10">
         {data.map((game, index) => (
           <Card key={index} data={game} />

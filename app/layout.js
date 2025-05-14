@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en" className="bg-zinc-800 text-white">
+      <html lang="en" className="bg-black text-white">
         <Head>
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
