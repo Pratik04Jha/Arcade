@@ -5,8 +5,8 @@ import "./globals.css";
 import Footer from "./components/Footer";
 
 export const metadata = {
-  title: "Game Arcade | Play Addictive Web Games Online",
-  description: "Game Arcade is your ultimate destination for online browser games. Enjoy a collection of addictive, fun, and free games anytime, anywhere.",
+  title: "LudumVerse | Play Addictive Web Games Online",
+  description: "LudumVerse is your ultimate destination for online browser games. Enjoy a collection of addictive, fun, and free games anytime, anywhere.",
   icons: {
     icon: "/Icon.png",
   },
