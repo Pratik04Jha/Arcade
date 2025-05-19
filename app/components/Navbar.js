@@ -92,9 +92,9 @@ const Navbar = () => {
     );
 
   return (
-    <nav className="">
-      <div className="flex fixed z-500 top-0 w-[85%] justify-between items-center py-2 px-12 bg-[rgb(0, 0, 0)] backdrop-blur-xl ">
-        <div className="flex items-center  bg-zinc-900/20 rounded-lg py-2 border-1 border-zinc-700 gap-2 px-4 ">
+    <nav className="flex flex-col w-full fixed z-500 top-0 gap-2 bg-black/80 backdrop-blur-xl pb-2">
+      <div className="flex 0 w-[85%] justify-between px-20 items-center py-2    ">
+        <div className="flex items-center   rounded-lg py-2 border-1 border-zinc-700 gap-2 px-4 ">
           <button onClick={search} className="">
             <IoSearchSharp size={22} className="" color="#a1a1a1" />
           </button>
@@ -109,7 +109,6 @@ const Navbar = () => {
           {/* Toggle Music Button */}
 
           <div className="flex gap-4 items-center  h-10 px-2">
-            
             <button onClick={notify} className="cursor-pointer">
               <MdOutlineFeedback size={24} className="" color="white" />
             </button>
@@ -199,6 +198,27 @@ const Navbar = () => {
             </Link>
           </Link>
         </ul>
+      </div>
+      <div className="flex items-center w-full justify-start pl-20 gap-2 ">
+        {[
+          { title: "All" },
+          { title: "Adventure" },
+          { title: "Action" },
+          { title: "Puzzle" },
+          { title: "Horror" },
+          { title: "Platformer" },
+          { title: "Fighting" },
+          { title: "Shooter" },
+          { title: "Racing" },
+          { title: "Simulation" },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="bg-zinc-900 cursor-pointer hover:bg-zinc-800 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+          >
+            {item.title}
+          </div>
+        ))}
       </div>
     </nav>
   );

@@ -95,7 +95,8 @@ const Page = () => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-15 py-30">
+    <div className="flex flex-wrap justify-center  py-30">
+      
       <div className="h-full w-full flex flex-wrap justify-center gap-10">
         {data.map((game, index) => (
           <Card key={index} data={game} />
