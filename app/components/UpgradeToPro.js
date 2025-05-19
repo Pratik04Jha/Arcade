@@ -51,7 +51,7 @@ export default function UpgradeToPro() {
   ];
 
   return (
-    <div className="min-h-screen pt-24 bg-black flex flex-col items-center px-4 ml-60">
+    <div className="min-h-screen pt-24 bg-black flex flex-col items-center px-4">
       {/* Heading */}
       <h1 className="text-white text-4xl font-bold mb-10 text-center">
         Upgrade to Pro & Unlock Magic
