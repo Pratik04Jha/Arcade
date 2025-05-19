@@ -96,7 +96,27 @@ const Page = () => {
 
   return (
     <div className="flex flex-wrap justify-center  py-30">
-      
+      <div className="flex items-center w-full justify-start pl-20 gap-2 fixed top-13 left-60 z-500 py-2 bg-black/80 backdrop-blur-xl">
+        {[
+          { title: "All" },
+          { title: "Adventure" },
+          { title: "Action" },
+          { title: "Puzzle" },
+          { title: "Horror" },
+          { title: "Platformer" },
+          { title: "Fighting" },
+          { title: "Shooter" },
+          { title: "Racing" },
+          { title: "Simulation" },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="bg-zinc-900 cursor-pointer hover:bg-zinc-800 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+          >
+            {item.title}
+          </div>
+        ))}
+      </div>
       <div className="h-full w-full flex flex-wrap justify-center gap-10">
         {data.map((game, index) => (
           <Card key={index} data={game} />
