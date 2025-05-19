@@ -12,6 +12,7 @@ import { GiAbstract039 } from "react-icons/gi";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { FaAnglesLeft } from "react-icons/fa6";
 import { BsStars } from "react-icons/bs";
+import Link from "next/link";
 
 const SideBar = () => {
   const info = [
@@ -32,28 +33,28 @@ const SideBar = () => {
     {
       name: "Contact",
       link: "/Contact",
-      icon: <IoShareSocialOutline size={20} />, 
+      icon: <IoShareSocialOutline size={20} />,
       bgc: "bg-green-600",
       boxShadow: "shadow-[0_10px_0px_#003f08]",
     },
     {
       name: "Leaderboard",
       link: "/Leaderboard",
-      icon: <GoTrophy size={20} />, 
+      icon: <GoTrophy size={20} />,
       bgc: "bg-yellow-600",
       boxShadow: "shadow-[0_10px_0px_#483100]",
     },
     {
       name: "History",
       link: "/History",
-      icon: <MdOutlineHistory size={20} />, 
+      icon: <MdOutlineHistory size={20} />,
       bgc: "bg-green-600",
       boxShadow: "shadow-[0_10px_0px_#003f08]",
     },
     {
       name: "Favorite",
       link: "/Favorite",
-      icon: <MdOutlineFavoriteBorder size={20} />, 
+      icon: <MdOutlineFavoriteBorder size={20} />,
       bgc: "bg-blue-600",
       boxShadow: "shadow-[0_10px_0px_#00163f]",
     },
@@ -87,9 +88,11 @@ const SideBar = () => {
           </p>
 
           {/* Button */}
-          <button className="w-full py-2 rounded-lg bg-zinc-800/60 text-white font-semibold cursor-pointer">
-            Get Started
-          </button>
+          <Link href="/UpgradeToPro">
+            <button className="w-full py-2 rounded-lg bg-zinc-800/60 text-white font-semibold cursor-pointer">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
     </aside>

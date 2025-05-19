@@ -1,100 +1,87 @@
 "use client";
 import React from "react";
-import { ToastContainer, toast } from "react-toastify";
-import SocialMediaCards from "../components/SocialMediaCards";
-import { FaInstagram, FaGithub, FaTwitter, FaFacebook, FaLinkedin, FaQuora } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaGithub,
+  FaTwitter,
+  FaFacebook,
+  FaLinkedin,
+  FaQuora,
+} from "react-icons/fa";
+import SocialIcons from "@/app/components/UserInterface/SocialIcons";
+import toast from "react-hot-toast";
 
 const page = () => {
-  const record = [
-    {
-      icon: <FaInstagram size={100} color="black" />,
-      title: "Instagram",
-      bgColor: "bg-yellow-600",
-      link: "",
-    },
-    {
-      icon: <FaGithub size={100} color="black"  />,
-      title: "Github",
-      bgColor: "bg-green-600",
-      link: "",
-
-    },
-    {
-      icon: <FaTwitter size={100} color="black"  />,
-      title: "Twitter",
-      bgColor: "bg-blue-600",
-      link: "",
-
-    },
-    {
-      icon: <FaFacebook size={100} color="black"  />,
-      title: "Facebook",
-      bgColor: "bg-green-600",
-      link: "",
-
-    },
-    {
-      icon: <FaLinkedin size={100} color="black"  />,
-      title: "LinkedIn",
-      bgColor: "bg-blue-600",
-      link: "",
-
-    },
-    {
-      icon: <FaQuora size={100} color="black"  />,
-      title: "Quora",
-      bgColor: "bg-yellow-600",
-      link: "",
-
-    },
+  const data = [
+    { icon: <FaInstagram size={30} />, src: "/", title: "Instagram" },
+    { icon: <FaGithub size={30} />, src: "/", title: "Github" },
+    { icon: <FaTwitter size={30} />, src: "/", title: "Twitter" },
+    { icon: <FaFacebook size={30} />, src: "/", title: "Facebook" },
+    { icon: <FaLinkedin size={30} />, src: "/", title: "LinkedIn" },
+    { icon: <FaQuora size={30} />, src: "/", title: "Quora" },
   ];
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const message = e.target.message.value;
 
-  const notify = () =>
-    toast.success(
-      "You have successfully sent the message to the legend Pratik Jha!",
-      {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      }
-    );
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, message }),
+    });
+
+    const result = await res.json();
+    if (result.success) {
+      toast.success("Email sent successfully");
+    } else {
+      toast.error("Something went wrong");
+    }
+  };
 
   return (
-    <div className="h-[150vh] w-full pt-15 ml-60 pr-60">
-      <div className="flex flex-col gap-10 pt-15 justify-center items-center pr-60">
-        <h1 className="textShadow text-6xl tracking-tight text-center font-extrabold text-yellow-500">
-          Contact me!
-        </h1>
-        <div className="h-full w-full flex gap-10 flex-col ml-60 pr-60">
-          <input
-            type="email"
-            className="w-[100%] bg-zinc-900 h-14 outline-none px-5"
-            placeholder="Enter your email"
-          />
-          <textarea
-            className="bg-zinc-900 resize-none border-5 outline-none h-30 w-[100%] border-yellow-500 px-5 py-2"
-            placeholder="Enter your message here!"
-          ></textarea>
-          <button
-            onClick={notify}
-            className="bg-yellow-500 border-5 cursor-pointer border-black w-[20%] py-2 text-black font-extrabold m-auto shadow-[-10px_10px_0_#000] ease-in-out duration-200 active:translate-y-[10px] active:-translate-x-[10px] active:shadow-none"
-          >
-            Send
-          </button>
-          <ToastContainer />
-        </div>
+    <div className="h-screen w-full bg-black text-white flex flex-col justify-center items-center relative overflow-hidden px-4">
+      <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+        Contact Me
+      </h1>
 
-        <div className="h-full w-[100%] flex justify-center flex-wrap gap-4">
-          {record.map((items, index) => (
-            <SocialMediaCards record={items} key={index} />
+      <form
+        className="mt-10 backdrop-blur-md bg-zinc-900/40 border border-white/20 shadow-xl rounded-2xl p-10 w-full max-w-xl flex flex-col gap-6"
+        onSubmit={handleSubmit}
+      >
+        <input
+          type="email"
+          required
+          name="email"
+          placeholder="Your email"
+          className="bg-transparent border border-white/30 rounded-xl px-4 py-3 outline-none text-white placeholder-white/60 focus:ring-2 focus:ring-white/50 transition-all duration-300"
+        />
+        <textarea
+          placeholder="Write your message..."
+          required
+          name="message"
+          className="bg-transparent border border-white/30 rounded-xl px-4 py-3 h-40 outline-none text-white placeholder-white/60 resize-none focus:ring-2 focus:ring-white/50 transition-all duration-300"
+        ></textarea>
+        <button
+          type="submit"
+          className="bg-white cursor-pointer text-black font-bold px-6 py-3 rounded-xl hover:bg-gray-200 transition-all duration-300 shadow-md"
+        >
+          Send Message
+        </button>
+      </form>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
+        <div className="flex gap-5">
+          {data.map((item, index) => (
+            <SocialIcons key={index} data={item} />
           ))}
         </div>
       </div>
+
+      <div className="absolute top-10 left-10 w-40 h-40 bg-red-500/20 rounded-full blur-3xl " />
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-red-400/20 rounded-full blur-3xl " />
     </div>
   );
 };
