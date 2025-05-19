@@ -1,27 +1,61 @@
 import React from "react";
+import Technologies from "../components/Technologies";
+import Supportbutton from "../components/SupportButton";
+import SocialButtons from "../components/SocialButtons";
 
 const page = () => {
+  const data = [
+    { title: "Next.js" },
+    { title: "React.js" },
+    { title: "Vercel" },
+    { title: "Node.js" },
+    { title: "Tailwind CSS" },
+  ];
+ const support = [
+    {
+      title: "Buy me a coffee",
+      src: "https://buymeacoffee.com/poptale?status=1",
+    },
+    { title: "Ko-Fi", src: "https://ko-fi.com/pratikjha#payment-widget" },
+    { title: "Patreon", src: "https://www.patreon.com/c/Poptale" },
+  ];
+
+    const social = [
+    { title: "Instagram", src: "https://www.instagram.com/poptale_artz" },
+    {
+      title: "Facebook",
+      src: "https://www.facebook.com/profile.php?id=61574732885384",
+    },
+    { title: "Twitter(X)", src: "https://x.com/pratik04jha" },
+    {
+      title: "Linkedin",
+      src: "https://www.linkedin.com/in/pratik-jha-380037301",
+    },
+    { title: "Github", src: "https://github.com/Pratik04Jha" },
+    { title: "Quora", src: "https://www.quora.com/profile/Pratik-1703" },
+  ];
+
   return (
     <>
       <div className="h-[100%] w-full mt-15 ">
         <div className="relative  flex flex-col items-center">
           <img
-            className="w-full h-70 object-cover"
-            src="https://t3.ftcdn.net/jpg/07/32/10/90/360_F_732109080_4lXwGofazqAiysUpcCnrbflsNOl9EMdW.jpg"
+            className="w-full h-60 object-cover"
+            src="https://dkemhji6i1k0x.cloudfront.net/000_clients/1234731/page/1234731pUh2h2NM.png"
             alt="Banner image"
           />
           <img
-            className="absolute -z-100 blur-3xl top-0  w-full h-70 object-cover"
-            src="https://t3.ftcdn.net/jpg/07/32/10/90/360_F_732109080_4lXwGofazqAiysUpcCnrbflsNOl9EMdW.jpg"
+            className="absolute -z-100 blur-3xl top-0  w-full h-60 object-cover"
+            src="https://dkemhji6i1k0x.cloudfront.net/000_clients/1234731/page/1234731pUh2h2NM.png"
             alt="Banner image"
           />
           <div className="absolute left-1/2 top-[100%] -translate-1/2 h-70   rounded-full flex justify-center items-center">
             <img
-              className="image h-full w-[100%] rounded-full  "
-              src="https://i.pinimg.com/736x/58/6b/2d/586b2d4bd4a96da20f60e50b7f202d82.jpg"
+              className="image h-[70%] rounded-full  "
+              src="https://cdn.hero.page/pfp/3ca815a8-c12b-4e06-a23a-74509807d46c-delightful-anime-boy-with-red-accents-adorable-red-anime-pfp-3.png"
               alt=""
             />
-            <h1 className="absolute -translate-1/2 top-[110%] text-2xl font-bold cursor-default left-[50%]  ">
+            <h1 className="absolute -translate-1/2 top-[100%] w-full text-center  text-3xl font-bold cursor-default left-[50%]  ">
               Pratik Jha
             </h1>
           </div>
@@ -29,69 +63,99 @@ const page = () => {
       </div>
 
       <div className="flex justify-center items-center gap-5 h-[60%] flex-col ">
-        <p className=" text-center mt-50 w-[70%]">
-          I’m Pratik – a creator, problem-solver, and a passionate tech
-          enthusiast who’s always been drawn to the world of innovation. My
-          journey started long ago when I first discovered the power of
-          technology and how it can transform ideas into reality. From the
-          moment I wrote my first line of code, I was hooked. Over the years,
-          I’ve dived deep into building websites, apps, developing games, and
-          exploring new programming languages, always seeking ways to push the
-          boundaries of what’s possible. I’ve faced challenges and celebrated
-          small victories along the way, but through it all, one thing has
-          remained constant: my drive to create something meaningful. For me,
-          it’s not just about the end result – it’s about the journey, the
-          learning, and the ability to keep growing, improving, and exploring
-          new possibilities. Every project I take on is an opportunity to dive
-          deeper, to explore new technologies, and to bring my ideas to life.
-          I’m always evolving, and that’s what makes this adventure so exciting!
-          So whether you’re here to learn, collaborate, or just enjoy the work
-          I’ve done, I’m glad to have you on this journey with me.
+        <p className=" text-center mt-45 w-[70%]">
+          Hey, I’m Pratik — a creator, explorer, and tech enthusiast obsessed
+          with turning ideas into reality. My journey began with curiosity and a
+          keyboard, and ever since, I’ve been diving into everything from web
+          development and game design to experimenting with new tech. I don’t
+          just build for the sake of it — I build to learn, grow, and push the
+          boundaries of what’s possible. Every bug I fix, every game I release,
+          every project I launch — it’s all part of the thrill. This arcade is
+          more than just games — it’s a piece of my journey, and it’s only
+          getting started.
         </p>
 
-        <h1 className=" text-5xl  text-center mt-10 font-bold ">
-          The Story Behind This Arcade
+        <h1 className=" text-3xl  text-center mt-10 font-bold ">
+          Built From Memories, Powered by Code
         </h1>
-        <div className="flex justify-center items-center gap-5 h-[60%]  mb-20 ">
+        <div className="flex justify-center items-center gap-5 h-[60%]   ">
           <p className="w-[70%]  text-center ">
-            Creating this arcade was a dream that stemmed from my lifelong love
-            for video games and the nostalgia they bring. Growing up, I spent
-            countless hours at the local arcade, lost in the excitement of
-            fast-paced action, pixelated graphics, and the joy of competing with
-            friends for high scores. Unlike many of the popular games today,
-            like PUBG or Free Fire, I never enjoyed those types of games.
-            Instead, I was drawn to the charm of classic 2D games – the simple
-            yet captivating gameplay that kept me hooked for hours. Those
-            moments stayed with me, and I always wanted to create something that
-            would capture that same feeling but with a fresh, modern twist.
-            <br />
-            However, over time, my passion for playing video games shifted. I no
-            longer found myself spending hours in front of the screen playing –
-            instead, I found joy in creating video games. I’ve come to realize
-            that building these experiences is far more fulfilling for me than
-            simply playing them. Now, my focus is on designing, developing, and
-            bringing these games to life, and that shift in mindset is what led
-            to the creation of this arcade. <br /> This arcade is my way of
-            blending the past with the present, bringing the timeless excitement
-            of classic arcade games into the digital age. However, I didn’t want
-            to just recreate the games – I wanted to create an experience. Some
-            of the games might not be as responsive or refined, as many of them
-            were made during the early stages of my learning journey. But now
-            that I’ve developed more as a creator, I plan on gradually
-            redeveloping those older games to bring them up to the quality
-            standards I’ve set for myself. <br /> The arcade is more than just a
-            collection of games – it’s an interactive space where the games not
-            only provide fun, but also spark creativity and challenge. I’ve
-            poured my heart into this project, ensuring that every game has its
-            own unique story to tell. The arcade is still a work in progress,
-            which only adds to its excitement. I’m constantly looking for ways
-            to improve, adding new games and keeping the experience fresh. It’s
-            a place where old-school meets new-school, and where every game has
-            a purpose. <br /> I love creting games more than playing someone
-            else games, for me the best games in the world are my own created
-            games, any other game can not beat the fun and satisfaction of
-            playing your own created games
+            This arcade isn’t just a collection of games — it’s a piece of my
+            soul. I grew up obsessed with classic 2D games, not the mainstream
+            stuff like PUBG or Free Fire. While others chased battle royales, I
+            was chasing high scores in pixelated playgrounds. But over time, I
+            stopped playing and started building. I realized creating games gave
+            me way more joy than playing them. So, I brought this dream to life
+            — not just to revive retro vibes, but to evolve them with a modern
+            twist. Some of the games here were built when I was just starting
+            out, raw and imperfect — but that’s part of the story. I’m
+            constantly upgrading them, learning and growing with each line of
+            code. For me, nothing beats the thrill of playing a game I made with
+            my own hands. This arcade is my tribute to the past, my playground
+            for the present, and a foundation for the future.
           </p>
+        </div>
+
+        <h1 className=" text-3xl  text-center mt-10 font-bold ">
+          Technologies used
+        </h1>
+
+        <div className="flex justify-center w-full">
+          <ul className="flex flex-wrap justify-center gap-5 mt-5 sm:w-[60%] w-full">
+            {data.map((items, index) => (
+              <div key={index} custom={index}>
+                <Technologies data={items} />
+              </div>
+            ))}
+          </ul>
+        </div>
+
+         <div
+          className="flex flex-col items-center  gap-10"
+        >
+          <h1 className="text-3xl  text-center mt-10 font-bold">
+            Support
+          </h1>
+          <div className="flex flex-wrap justify-center w-full items-center gap-5">
+            {support.map((items, index) => (
+              <div
+                key={index}
+                custom={index}
+              >
+                <Supportbutton support={items} />
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div
+          className="flex flex-col items-center mt-10 w-full gap-4"
+        >
+          {social.map((items, index) => (
+            <SocialButtons key={index} social={items} />
+          ))}
+        </div>
+
+        <div className="flex items-center flex-col my-10">
+          <h2 className="love text-2xl md:text-5xl w-full md:w-[70%]  text-center font-bold  leading-15">
+            Made with 🤍 by a 16 year old boy from India
+          </h2>
+          <div className="flex flex-col md:flex-row w-full justify-center gap-5 items-center  ">
+            <h1 className="text-lg sm:text-xl md:text-2xl text-center md:text-left">
+              Read my journey –
+            </h1>
+            <div className="relative group w-fit my-10">
+              <div className="relative p-[3px] sm:p-[4px] md:p-[5px] px-[6px] sm:px-[8px] md:px-[10px] rounded-[100px] overflow-hidden">
+                <div className="absolute -inset-100 z-0 rounded-[100px] bg-[conic-gradient(from_0deg,red,orange,yellow,green,cyan,blue,violet,red)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-spin-slow pointer-events-none" />
+
+                <button className="changed relative overflow-hidden text-sm sm:text-base md:text-lg lg:text-2xl py-6 px-16 sm:py-4 sm:px-20 md:py-10 md:px-32 cursor-pointer hover:scale-[1.05] transition-all duration-300 ease-in-out bg-amber-50 text-black rounded-[100px] flex items-center justify-center z-20">
+                  <span className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-30 text-white mix-blend-difference whitespace-nowrap">
+                    Blog Post
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
