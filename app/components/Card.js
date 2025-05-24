@@ -1,25 +1,32 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Card = ({ data }) => {
   return (
     <div className="group relative w-[22rem] h-[26rem] py-2 px-2 rounded-3xl overflow-hidden transition-all duration-500 transform scale-[1.025] cursor-pointer hover:scale-[1.05]  hover:border-zinc-700 hover:rotate-[0.3deg] backdrop-blur-md">
       {/* Image Section */}
       <div className="h-[55%] w-full overflow-hidden relative rounded-3xl">
-        <img
+        <Image
           src={data.imageSrc}
+          width={500}
+          height={500}
           alt={data.title}
-          className="h-full w-full object-cover object-center rounded-3xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[1.5deg]"
+          priority // Preload the image for better performance
+          className="h-full pointer-events-none select-none w-full object-cover object-center rounded-3xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[1.5deg]"
         />
         {/* Neon Glow Overlay */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-zinc-900 opacity-70 transition-opacity duration-300 group-hover:opacity-90"></div>
       </div>
 
       {/* Glow Blur Background */}
-      <img
+      <Image
         src={data.imageSrc}
+        width={500}
+        height={500}
         alt={data.title}
-        className="absolute blur-[80px] opacity-90 top-0 -z-1 h-[50%] w-full object-cover object-center rounded-3xl transition-all duration-500 scale-110"
+        priority // Preload the image for better performance
+        className="absolute pointer-events-none select-none blur-[80px] opacity-90 top-0 -z-1 h-[50%] w-full object-cover object-center rounded-3xl transition-all duration-500 scale-110"
       />
 
       {/* Shine Streak on Hover */}
@@ -33,7 +40,7 @@ const Card = ({ data }) => {
         <p className="text-sm text-zinc-300 mt-2">{data.description}</p>
 
         {/* Play Button */}
-        <div className=" mt-6 rounded-lg flex  gap-8 overflow-hidden cursor-pointer"> 
+        <div className=" mt-6 rounded-lg flex  gap-8 overflow-hidden cursor-pointer">
           <Link href={`/games/${data.id}`}>
             <button className=" cursor-pointer relative bg-red-700  transition-all duration-300 text-white text-lg font-semibold px-18 py-2 ">
               <span className=" z-10">Play</span>

@@ -2,6 +2,7 @@ import React from "react";
 import Technologies from "../components/Technologies";
 import Supportbutton from "../components/SupportButton";
 import SocialButtons from "../components/SocialButtons";
+import Image from "next/image";
 
 const page = () => {
   const data = [
@@ -11,7 +12,7 @@ const page = () => {
     { title: "Node.js" },
     { title: "Tailwind CSS" },
   ];
- const support = [
+  const support = [
     {
       title: "Buy me a coffee",
       src: "https://buymeacoffee.com/poptale?status=1",
@@ -20,7 +21,7 @@ const page = () => {
     { title: "Patreon", src: "https://www.patreon.com/c/Poptale" },
   ];
 
-    const social = [
+  const social = [
     { title: "Instagram", src: "https://www.instagram.com/poptale_artz" },
     {
       title: "Facebook",
@@ -39,23 +40,32 @@ const page = () => {
     <>
       <div className="h-[100%] w-full mt-15 ">
         <div className="relative  flex flex-col items-center">
-          <img
-            className="w-full h-60 object-cover"
+          <Image
+            width={500}
+            height={500}
+            priority
+            className="w-full pointer-events-none h-60 select-none object-cover"
             src="https://dkemhji6i1k0x.cloudfront.net/000_clients/1234731/page/1234731pUh2h2NM.png"
             alt="Banner image"
           />
-          <img
-            className="absolute -z-100 blur-3xl top-0  w-full h-60 object-cover"
+          <Image
+            width={500}
+            height={500}
+            priority
+            className="absolute pointer-events-none select-none -z-100 blur-3xl top-0  w-full h-60 object-cover"
             src="https://dkemhji6i1k0x.cloudfront.net/000_clients/1234731/page/1234731pUh2h2NM.png"
             alt="Banner image"
           />
           <div className="absolute left-1/2 top-[100%] -translate-1/2 h-70   rounded-full flex justify-center items-center">
-            <img
-              className="image h-[70%] rounded-full  "
+            <Image
+              width={200}
+              height={100}
+              priority
+              className="image h-[70%] pointer-events-none select-none rounded-full  "
               src="https://cdn.hero.page/pfp/3ca815a8-c12b-4e06-a23a-74509807d46c-delightful-anime-boy-with-red-accents-adorable-red-anime-pfp-3.png"
               alt=""
             />
-            <h1 className="absolute -translate-1/2 top-[100%] w-full text-center  text-3xl font-bold cursor-default left-[50%]  ">
+            <h1 className="absolute  -translate-1/2 top-[100%] w-full text-center  text-3xl font-bold cursor-default left-[50%]  ">
               Pratik Jha
             </h1>
           </div>
@@ -110,27 +120,18 @@ const page = () => {
           </ul>
         </div>
 
-         <div
-          className="flex flex-col items-center  gap-10"
-        >
-          <h1 className="text-3xl  text-center mt-10 font-bold">
-            Support
-          </h1>
+        <div className="flex flex-col items-center  gap-10">
+          <h1 className="text-3xl  text-center mt-10 font-bold">Support</h1>
           <div className="flex flex-wrap justify-center w-full items-center gap-5">
             {support.map((items, index) => (
-              <div
-                key={index}
-                custom={index}
-              >
+              <div key={index} custom={index}>
                 <Supportbutton support={items} />
               </div>
             ))}
           </div>
         </div>
-        
-        <div
-          className="flex flex-col items-center mt-10 w-full gap-4"
-        >
+
+        <div className="flex flex-col items-center mt-10 w-full gap-4">
           {social.map((items, index) => (
             <SocialButtons key={index} social={items} />
           ))}

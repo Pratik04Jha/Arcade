@@ -185,7 +185,7 @@ const Navbar = () => {
             </div>
           )}
 
-          <Link className="flex items-center justify-center gap-1" href="/">
+          <div className="flex items-center justify-center gap-1" >
             <Link href="/Links/SignIn">
               <button className="bg-black rounded-lg py-2 px-5 text-white border cursor-pointer border-zinc-700 font-semibold text-sm">
                 Sign in
@@ -196,7 +196,7 @@ const Navbar = () => {
                 Sign up
               </button>
             </Link>
-          </Link>
+          </div>
         </ul>
       </div>
       

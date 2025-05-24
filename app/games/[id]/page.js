@@ -2,48 +2,49 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
-import { HiMiniSpeakerWave } from "react-icons/hi2";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { Simple } from "@/app/components/Simple";
+import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 const gamesData = {
   snakeGame: {
     iframeSrc: "https://pratik04jha.github.io/Snake-Game/",
-    title: "The Snake Game",
+    title: "Pixel Python: The Classic Crawl | The Snake Game",
   },
   flappyBird: {
     iframeSrc: "https://pratik04jha.github.io/Flappy-Bird/",
-    title: "The Flappy bird",
+    title: "Flapocalypse: Rage of the Bird | Inspired by Flappy Bird",
   },
   fruitCatcher: {
     iframeSrc: "https://pratik04jha.github.io/Fruit-Catcher-Game/",
-    title: "The Fruit catcher",
+    title: "Fruit Frenzy: Catch 'Em All! | Fruit Catcher Game",
   },
   boxRunner: {
     iframeSrc: "https://pratik04jha.github.io/Subway-Surfers/",
-    title: "The Box runner",
+    title: "Box Runner: Dash Through Dimensions",
   },
   trexRunner: {
     iframeSrc: "https://pratik04jha.github.io/Just-Jump/",
-    title: "The T-rex runner",
+    title: "T-Rex: Run Before Extinction | Inspired by Chrome Dino",
   },
   rockPaperScissor: {
     iframeSrc: "https://pratik04jha.github.io/Stone-Paper-Scissor/",
-    title: "Rock paper scissor",
+    title: "RPS Showdown: Hand of Destiny | Rock Paper Scissor",
   },
   ticTacToe: {
     iframeSrc: "https://pratik04jha.github.io/Tic-Tac-Toe/",
-    title: "Tic tac toe",
+    title: "MindGrid: X vs O | Tic Tac Toe",
   },
   numberGuessing: {
     iframeSrc: "https://pratik04jha.github.io/Number-Guessing-Game/",
-    title: "The number game",
+    title: "GuessQuest: The Mystic Number Challenge | Number Guessing Game",
   },
   bubbling: {
     iframeSrc: "https://pratik04jha.github.io/Bubbling/",
-    title: "The bubbling game",
+    title: "BubbleBlitz: Pop or Perish | The Bubbling Game",
   },
 };
+
 
 const GamePage = () => {
   const { id } = useParams();
@@ -98,6 +99,9 @@ const GamePage = () => {
     }
   };
 
+  const [isMuted, setIsMuted] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+
   return (
     <div className="flex flex-col items-center justify-center h-[100vh] w-full pt-10 ">
       <div className="w-[80%] h-[90%] flex flex-col  relative">
@@ -111,7 +115,7 @@ const GamePage = () => {
               >
                 <h2 className="text-4xl font-bold mb-4">{game.title}</h2>
                 <p>Tap anywhere to play</p>
-              </div> 
+              </div>
             )}
 
             {/* Blurred Iframe when not playing */}
@@ -136,13 +140,33 @@ const GamePage = () => {
               {game.title}
             </h1>
           </div>
-          <div className="flex gap-1">
-            <button className=" p-1 text-white rounded">
-              <MdOutlineFavoriteBorder className="cursor-pointer" size={30} />
+
+          <div className="flex gap-2">
+            {/* Link button */}
+            <button
+              className=" p-1 text-white rounded"
+              onClick={() => setIsLiked((prev) => !prev)}
+            >
+              {!isLiked ? (
+                <FaRegHeart className="cursor-pointer" size={27} />
+              ) : (
+                <FaHeart className="cursor-pointer" size={27} />
+              )}
             </button>
-            <button className=" p-1 text-white rounded">
-              <HiMiniSpeakerWave className="cursor-pointer" size={30} />
+
+            {/* Mute/Unmute Button */}
+            <button
+              className=" p-1 text-white rounded"
+              onClick={() => setIsMuted((prev) => !prev)}
+            >
+              {isMuted ? (
+                <HiSpeakerXMark className="cursor-pointer" size={30} />
+              ) : (
+                <HiSpeakerWave className="cursor-pointer" size={30} />
+              )}
             </button>
+
+            {/* fullscreen button */}
             <button
               onClick={toggleFullScreen}
               className=" p-1 text-white rounded"
@@ -150,10 +174,16 @@ const GamePage = () => {
               {isFullScreen ? (
                 <MdFullscreenExit className="cursor-pointer" size={30} />
               ) : (
-                <MdFullscreen className="cursor-pointer" size={30} />
+                <MdFullscreen className="cursor-pointer" size={35} />
               )}
             </button>
           </div>
+        </div>
+        <div className="flex gap-2">
+          <h1>For better performance of game play here - </h1>{" "}
+          <a href="https://pratik04jha.github.io/Snake-Game/" className="text-[#00FFDD]" target="_blank">
+            {game.iframeSrc}
+          </a>
         </div>
       </div>
     </div>

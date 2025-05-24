@@ -6,13 +6,16 @@ import Footer from "./components/Footer";
 
 export const metadata = {
   title: "LudumVerse | Play Addictive Web Games Online",
-  description: "LudumVerse is your ultimate destination for online browser games. Enjoy a collection of addictive, fun, and free games anytime, anywhere.",
+  description:
+    "LudumVerse is your ultimate destination for online browser games. Enjoy a collection of addictive, fun, and free games anytime, anywhere.",
   icons: {
     icon: "/Icon.png",
   },
 };
 
 export default function RootLayout({ children }) {
+
+
   return (
     <html lang="en" className="bg-black text-white">
       <Head>
@@ -26,7 +29,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
         </div>
-        <Footer />
+       <Footer />
       </body>
     </html>
   );
