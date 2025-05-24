@@ -226,7 +226,7 @@ const GamePage = () => {
         <div className="flex gap-2">
           <h1>For better performance of game play here - </h1>{" "}
           <a
-            href="https://pratik04jha.github.io/Snake-Game/"
+            href={game.iframeSrc}
             className="text-[#00FFDD]"
             target="_blank"
           >
