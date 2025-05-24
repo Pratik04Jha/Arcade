@@ -5,6 +5,9 @@ import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
 import { Simple } from "@/app/components/Simple";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { LuCirclePlay } from "react-icons/lu";
+import toast, { Toaster } from "react-hot-toast";
+import { BiLike, BiDislike, BiSolidDislike, BiSolidLike } from "react-icons/bi";
 
 const gamesData = {
   snakeGame: {
@@ -44,7 +47,6 @@ const gamesData = {
     title: "BubbleBlitz: Pop or Perish | The Bubbling Game",
   },
 };
-
 
 const GamePage = () => {
   const { id } = useParams();
@@ -93,28 +95,58 @@ const GamePage = () => {
 
   // Handle Play button click
   const handlePlayClick = () => {
-    setIsPlaying(true);
+    const overlay = document.querySelector(".game-overlay");
+    if (overlay) {
+      overlay.classList.add("explode");
+
+      // Delay hiding to allow animation to play
+      setTimeout(() => {
+        setIsPlaying(true);
+      }, 600);
+    } else {
+      setIsPlaying(true);
+    }
+
     if (musicControls) {
       musicControls.pauseMusic();
     }
   };
 
-  const [isMuted, setIsMuted] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  const [isDisliked, setIsDisliked] = useState(false);
+
+  const notify = () =>
+    toast("Game has been saved to your favorites!", {
+      icon: "✅",
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
 
   return (
     <div className="flex flex-col items-center justify-center h-[100vh] w-full pt-10 ">
+      <div>
+        <Toaster position="bottom-right" reverseOrder={false} />
+      </div>
       <div className="w-[80%] h-[90%] flex flex-col  relative">
         <div className="games w-[100%] h-[100%]  z-1000">
           <div ref={gameContainerRef} className="w-[100%] h-[100%] relative">
             {/* Game Overlay */}
+
             {!isPlaying && (
               <div
                 onClick={handlePlayClick}
-                className="absolute border-1 border-zinc-700 top-0 cursor-pointer left-0 w-full h-full flex flex-col items-center justify-center backdrop-blur-3xl bg-opacity-80 rounded-2xl text-white z-20"
+                className="game-overlay absolute border-1 border-zinc-700 top-0 cursor-pointer left-0 w-full h-full flex flex-col items-center justify-center backdrop-blur-3xl  bg-opacity-60 rounded-2xl text-white z-20 gap-2 transition-all duration-1000 ease-in-out"
               >
-                <h2 className="text-4xl font-bold mb-4">{game.title}</h2>
-                <p>Tap anywhere to play</p>
+                <LuCirclePlay
+                  size={100}
+                  className="text-white  transition-all "
+                />
+                <p className="text-2xl font-semibold animate-fade-in">
+                  Tap anywhere to play
+                </p>
               </div>
             )}
 
@@ -140,29 +172,45 @@ const GamePage = () => {
               {game.title}
             </h1>
           </div>
-
+          {/*  */}
           <div className="flex gap-2">
             {/* Link button */}
+           
             <button
-              className=" p-1 text-white rounded"
-              onClick={() => setIsLiked((prev) => !prev)}
+              className="p-1 text-white rounded"
+              onClick={() => {
+                if (!isLiked) {
+                  setIsLiked(true);
+                  setIsDisliked(false);
+                  notify(); // Notify only when switching to like
+                } else {
+                  setIsLiked(false);
+                }
+              }}
             >
-              {!isLiked ? (
-                <FaRegHeart className="cursor-pointer" size={27} />
+              {isLiked ? (
+                <BiSolidLike className="cursor-pointer" size={30} />
               ) : (
-                <FaHeart className="cursor-pointer" size={27} />
+                <BiLike className="cursor-pointer" size={30} />
               )}
             </button>
 
-            {/* Mute/Unmute Button */}
+            {/* Dislike button */}
             <button
-              className=" p-1 text-white rounded"
-              onClick={() => setIsMuted((prev) => !prev)}
+              className="p-1 text-white rounded"
+              onClick={() => {
+                if (!isDisliked) {
+                  setIsDisliked(true);
+                  setIsLiked(false);
+                } else {
+                  setIsDisliked(false);
+                }
+              }}
             >
-              {isMuted ? (
-                <HiSpeakerXMark className="cursor-pointer" size={30} />
+              {isDisliked ? (
+                <BiSolidDislike className="cursor-pointer" size={30} />
               ) : (
-                <HiSpeakerWave className="cursor-pointer" size={30} />
+                <BiDislike className="cursor-pointer" size={30} />
               )}
             </button>
 
@@ -171,17 +219,17 @@ const GamePage = () => {
               onClick={toggleFullScreen}
               className=" p-1 text-white rounded"
             >
-              {isFullScreen ? (
-                <MdFullscreenExit className="cursor-pointer" size={30} />
-              ) : (
-                <MdFullscreen className="cursor-pointer" size={35} />
-              )}
+              <MdFullscreen className="cursor-pointer" size={35} />
             </button>
           </div>
         </div>
         <div className="flex gap-2">
           <h1>For better performance of game play here - </h1>{" "}
-          <a href="https://pratik04jha.github.io/Snake-Game/" className="text-[#00FFDD]" target="_blank">
+          <a
+            href="https://pratik04jha.github.io/Snake-Game/"
+            className="text-[#00FFDD]"
+            target="_blank"
+          >
             {game.iframeSrc}
           </a>
         </div>
