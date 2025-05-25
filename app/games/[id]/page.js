@@ -19,7 +19,7 @@ const GamePage = () => {
   const { id } = useParams()
   const games = gamesData[id]
 
-  const userId = "user123" // Replace with real user ID from Firebase Auth later
+  const userId = "user123" // i will Replace with real user ID from Firebase Auth later
 
   if (!games) {
     return <h1 className="text-center text-2xl mt-10">Game Not Found</h1>
