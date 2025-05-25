@@ -164,12 +164,12 @@ const Navbar = () => {
                 {
                   icon: <RiBloggerLine size={40} />,
                   title: "Blog",
-                  link: "/Home",
+                  link: "/",
                 },
                 {
                   icon: <TbAutomation size={40} />,
                   title: "Automation",
-                  link: "/Home",
+                  link: "/",
                 },
               ].map((data, i) => (
                 <Link

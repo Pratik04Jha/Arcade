@@ -1,12 +1,41 @@
+// app/favorite/page.js
+"use client"; // Add this at the top to make it a client component
+
+import { useEffect, useState } from "react";
 import { getFavorites } from "@/lib/favorites";
 import Image from "next/image";
 import Link from "next/link";
-const FavoritePage = async () => {
-  const userId = "user123"; // i will Firebase Auth later
-  const favorites = await getFavorites(userId);
+
+const FavoritePage = () => {
+  const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      const userId = "user123"; // Replace with real user ID later
+      try {
+        const favs = await getFavorites(userId);
+        setFavorites(favs);
+      } catch (error) {
+        console.error("Error fetching favorites:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFavorites();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="p-4 h-screen flex items-center justify-center">
+        <p>Loading favorites...</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="p-4 h-screen  flex items-center pt-20 flex-col">
+    <div className="p-4 h-screen flex items-center pt-20 flex-col">
       <div className="flex flex-wrap justify-center items-center gap-10">
         {favorites.map((games) => (
           <div
