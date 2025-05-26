@@ -1,5 +1,4 @@
-// app/favorite/page.js
-"use client"; // Add this at the top to make it a client component
+"use client"; 
 
 import { useEffect, useState } from "react";
 import { getFavorites } from "@/lib/favorites";

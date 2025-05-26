@@ -299,7 +299,7 @@ const gamesData = {
       "Pick your move and challenge the computer in this quick, fun, and endlessly replayable game of strategy and chance!",
   },
   ticTacToe: {
-    iframeSrc: "https://pratik04jha.github.io/Tic-Tac-Toe/",
+    iframeSrc: "https://tic-tac-toe-orcin-omega-62.vercel.app/",
     title: "MindGrid: X vs O | Tic Tac Toe",
     id: "ticTacToe",
     mainTitle: "Tic Tac Toe",
